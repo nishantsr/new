@@ -1,0 +1,47 @@
+
+
+
+<div class="wrapper">
+    <div class="logo"> <img src="../../../assets/loginLogo.jpg" alt="logo.jpeg"> </div>
+   
+    <form class="p-3 mt-3" (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm" novalidate>
+        <div class="form-field d-flex align-items-center"  [ngClass]="{ 'has-error': loginForm.submitted && !username.valid }"> 
+            <span class="far fa-user"></span> 
+            <input type="text" name="userName" id="userName" placeholder="Username" [(ngModel)]="user.email" #username="ngModel" required>
+        </div>
+        <div *ngIf="loginForm.submitted && !username.valid" class="help-block">Username is required</div> 
+
+        <div class="form-field d-flex align-items-center" [ngClass]="{ 'has-error': loginForm.submitted && !password.valid }"> 
+            <span class="fas fa-key"></span> 
+            <input type="password" name="password" id="pwd" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required > 
+        </div> 
+        <div *ngIf="loginForm.submitted && !password.valid" class="help-block">Password is required</div>
+        
+        <div class="form-field d-flex align-items-center"> 
+            <re-captcha   (resolved)="resolved($event)" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" ></re-captcha>
+        </div> 
+        
+
+<!-- ********* For OTP ********** -->
+        
+            
+                <!-- <div class="form-field d-flex align-items-center"> 
+                    <span class="far fa-user"></span> 
+                    <input type="text" name="contact" id="contact" placeholder="Enter your mobile number" [(ngModel)]="otpCred.contact" #contact="ngModel" autocomplete="off" required>
+                </div> -->
+                <!-- <button (click)="sendOtp()" class="btn btn-primary">Get OTP</button> -->
+                <p class="help-block">{{message}}</p>
+                <div  class="form-field d-flex align-items-center"> 
+                        <span class="far fa-user"></span> 
+                        <input *ngIf="flag" type="text" name="otp" id="otp" placeholder="Enter OTP" [(ngModel)]="otpCred.otp"  autocomplete="off" required>
+                </div>
+                <button *ngIf="flag" class="btn btn-warning" (click)="verifyOtp()">Verify OTP</button> <br/>
+
+                
+                
+                <button [disabled]="responseOtp" *ngIf="captcha" class="btn btn-primary">Login</button>
+            </form><br/>
+            <div class="text-center fs-6"> <a href="#">Forget password?</a> or <button (click)="signUp()">Sign up</button> </div>
+    </div>
+
+                
