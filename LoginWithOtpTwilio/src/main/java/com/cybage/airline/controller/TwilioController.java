@@ -16,7 +16,7 @@ import com.cybage.airline.entity.VerificationResult;
 import com.cybage.airline.service.PhoneVerificationService;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public class TwilioController {
 	@Autowired
 	PhoneVerificationService phoneSmsService;
