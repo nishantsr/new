@@ -1,7 +1,7 @@
-import { CUser } from './cuser';
+import { Cuser } from './cuser';
 
-describe('CUser', () => {
+describe('Cuser', () => {
   it('should create an instance', () => {
-    expect(new CUser()).toBeTruthy();
+    expect(new Cuser()).toBeTruthy();
   });
 });

@@ -1,43 +1,89 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RecaptchaModule } from 'ng-recaptcha';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { LoginComponent } from './components/login/login.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { RegisterComponent } from './components/register/register.component';
-import { SecurityComponent } from './components/security/security.component';
-import { UserComponent } from './components/user/user.component';
-import { UserListComponent } from './components/user-list/user-list.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
-import { AuthGuard } from './auth.guard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { CreateBookingComponent } from './create-booking/create-booking.component';
+import { BookingListComponent } from './booking-list/booking-list.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UpdateBookingComponent } from './update-booking/update-booking.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { SignupComponent } from './signup/signup.component';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { CreateAirportComponent } from './create-airport/create-airport.component';
+import { AirportListComponent } from './airport-list/airport-list.component';
+import { AirportDetailsComponent } from './airport-details/airport-details.component';
+import { UpdateAirportComponent } from './update-airport/update-airport.component';
+import { CreateFlightComponent } from './create-flight/create-flight.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { FlightListComponent } from './flight-list/flight-list.component';
+import { UpdateFlightComponent } from './update-flight/update-flight.component';
+import { SearchScheduledFlightComponent } from './search-scheduled-flight/search-scheduled-flight.component';
+import { AddScheduledFlightComponent } from './add-scheduled-flight/add-scheduled-flight.component';
+import { ShowScheduledFlightsComponent } from './show-scheduled-flights/show-scheduled-flights.component';
+import { ModifyScheduledFlightComponent } from './modify-scheduled-flight/modify-scheduled-flight.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { UpdateComponent } from './update/update.component';
 
-import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
+    FooterComponent,
+    HeaderComponent,
+    CreateBookingComponent,
+    BookingListComponent,
+    BookingDetailsComponent,
+    UpdateBookingComponent,
+    HomeComponent,
     LoginComponent,
-    NavbarComponent,
+    LogoutComponent,
+    SignupComponent,
+    CreateAirportComponent,
+    AirportListComponent,
+    AirportDetailsComponent,
+    UpdateAirportComponent,
+    CreateFlightComponent,
+    FlightDetailsComponent,
+    FlightListComponent,
+    UpdateFlightComponent,
+    SearchScheduledFlightComponent,
+    AddScheduledFlightComponent,
+    ModifyScheduledFlightComponent,
+    ShowScheduledFlightsComponent,
+    UserDetailsComponent,
+    CreateUserComponent,
+    UpdateUserComponent,
+    ListUserComponent,
     RegisterComponent,
-    SecurityComponent,
-    UserComponent,
-    UserListComponent,
-    UserDashboardComponent
+    NavbarComponent,
+    FeedbackComponent,
+    UpdateComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    RecaptchaModule
+    HttpClientModule,
+    PasswordStrengthMeterModule
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

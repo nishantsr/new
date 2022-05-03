@@ -1,0 +1,44 @@
+<div class="container" id="wrap">
+    <div class="container text-center">
+      <img src="../../../assets/images/4435214.jpg" alt="" height="200px">
+    </div>
+    <br>
+
+<form [formGroup]="updateForm" (ngSubmit)="formUpdate()" action="r" method="post" accept-charset="utf-8"
+class="form" role="form">
+
+<div class="row">
+  <div class="col-xs-6 col-md-6">
+    
+    <input [(ngModel)]="detailsToUpdate.firstName" required type="text" name="firstName" value=""
+      class="form-control input-lg" placeholder="First Name" formControlName="firstName" />
+      <div class="error"  class="text-danger" *ngIf="updateForm.controls['firstName'].hasError('required') && updateForm.controls['firstName'].touched">FirstName is required</div>
+      <br>
+  </div>
+  <div class="col-xs-6 col-md-6">
+    
+    <input [(ngModel)]="detailsToUpdate.lastName" required type="text" name="lastName" value=""
+      class="form-control input-lg" placeholder="Last Name" formControlName="lastName" />
+      <div class="error"  class="text-danger" *ngIf="updateForm.controls['lastName'].hasError('required') && updateForm.controls['lastName'].touched">Lastname is required</div>
+      <br>
+  </div>
+</div>
+
+<input [(ngModel)]="detailsToUpdate.emailId" required type="email" name="email" value="" class="form-control input-lg"
+  placeholder="Your Email" formControlName="emailId" />
+  <div class="error"  class="text-danger" *ngIf="updateForm.controls['emailId'].hasError('required') && updateForm.controls['emailId'].touched">Email is required</div>
+  <br>
+<input [(ngModel)]="detailsToUpdate.username" required type="text" name="username" value="" class="form-control input-lg"
+  placeholder="Username" formControlName="username" />
+  <div class="error"  class="text-danger" *ngIf="updateForm.controls['username'].hasError('required') && updateForm.controls['username'].touched">Username is required</div>
+<br>
+
+<input [(ngModel)]="detailsToUpdate.mobile" required type="number" name="phone" value="" class="form-control input-lg"
+  placeholder="Phone" formControlName="mobile" />
+  <div class="error"  class="text-danger" *ngIf="updateForm.controls['mobile'].hasError('required') && updateForm.controls['mobile'].touched">Mobile number is required</div>
+<br />
+<button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" [disabled]="updateForm.invalid">
+  Update</button>
+<br>
+</form>
+</div>

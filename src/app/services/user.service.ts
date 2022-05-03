@@ -1,28 +1,32 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private baseUrl='http://localhost:9092/user';
   constructor(private http: HttpClient) { }
-  public getUsers()
-  {
-    return this.http.get(`http://localhost:8091/user/getUsers`)
+
+  createUser(user: object): Observable<Object>{
+    return this.http.post(`${this.baseUrl}/addUser`, user);
   }
 
-  public updateUser(user:any)
-  {
-    return this.http.put(`http://localhost:8091/user/updateUser`, user)
+  updateUser(user: object): Observable<Object>{
+    return this.http.put(`${this.baseUrl}/updateUser/`, user);
   }
 
-  public getUsers2(token:any)
-  {
-    let tokenStr= 'Bearer '+token
-    const headers= new HttpHeaders().set("Authorization", tokenStr);
-    return this.http.get(`http://localhost:8091/user/getUsers`, {headers})
+  deleteUser(id: number): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/deleteUser/${id}`,{ responseType: 'text'});
   }
 
-  
+  getUser(userId: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/searchUser/${userId}`);
+  }
+
+  getUserList(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/readAllUsers`)
+  }
 }
